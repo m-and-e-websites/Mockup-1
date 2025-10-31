@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- MOCKUP TEMPLATE — Plumber (Deep Navy + Amber) -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[Your Plumber Name] — Reliable Plumbing in Bradford</title>
+  <meta name="theme-color" content="#0B1220" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Palette A — Deep Navy + Amber */
+      --bg:#0B1220;        /* page background */
+      --surface:#121A2A;   /* cards/sections */
+      --elev:#1A2436;      /* hover/raised */
+      --text:#F5F6FA;      /* main text */
+      --muted:#C9D0E1;     /* subtext */
+      --border:#233049;    /* hairlines */
+      --accent:#FFB224;    /* buttons/highlights */
+      --ring:rgba(255,178,36,.35);
+      --radius:16px;
+    }
+
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      line-height:1.6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--accent); text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:1140px; margin:0 auto; padding:0 20px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:40;
+      background:linear-gradient(180deg, rgba(11,18,32,.92), rgba(11,18,32,.6));
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--border);
+    }
+    nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo-box{
+      min-width:150px; height:48px; padding:8px 12px;
+      border:1px dashed var(--border); border-radius:12px; color:var(--muted);
+      font-family:"Space Grotesk", Inter; font-weight:700; letter-spacing:.6px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 18px; border-radius:999px; font-weight:600; letter-spacing:.2px;
+      border:1px solid var(--border); background:transparent; color:var(--text);
+      transition:transform .15s, background .15s, box-shadow .15s, border-color .15s;
+      cursor:pointer;
+    }
+    .btn:hover{background:var(--elev); transform:translateY(-1px)}
+    .btn:focus-visible{outline:none; box-shadow:0 0 0 4px var(--ring)}
+    .btn-primary{background:var(--accent); color:#0B1220; border-color:transparent}
+    .btn-primary:hover{filter:brightness(.95)}
+
+    /* Hero */
+    .hero{position:relative; padding:96px 0 72px; border-bottom:1px solid var(--border); overflow:hidden}
+    .hero::before{
+      /* Replace this with your stock hero image */
+      content:""; position:absolute; inset:0;
+      background-image:
+        radial-gradient(80% 80% at 10% 10%, rgba(255,178,36,.10), transparent 60%),
+        radial-gradient(80% 80% at 90% 20%, rgba(255,178,36,.07), transparent 60%),
+        linear-gradient(180deg, rgba(11,18,32,.45), rgba(11,18,32,.88)),
+        url('assets/plumber-hero.jpg'); /* <-- drop a stock image here */
+      background-size:cover; background-position:center;
+      filter:contrast(1.05) saturate(1.05);
+      z-index:-1;
+    }
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+    .eyebrow{font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+    .h1{font-family:"Space Grotesk", Inter; font-weight:700; letter-spacing:-.6px; font-size:clamp(34px,6.2vw,64px); line-height:1.06; margin:8px 0 10px}
+    .lead{font-size:clamp(16px,2.5vw,20px); color:var(--muted); margin:0 0 22px}
+    .hero-card{
+      background:rgba(18,26,42,.82); border:1px solid var(--border);
+      backdrop-filter:blur(6px); border-radius:var(--radius); padding:20px;
+    }
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .badge{
+      border:1px solid var(--border); border-radius:999px; padding:8px 12px; font-weight:600;
+      background:rgba(18,26,42,.7); color:var(--muted);
+    }
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-h{font-family:"Space Grotesk", Inter; font-weight:700; font-size:clamp(24px,3.6vw,36px); margin:0 0 10px}
+    .section-p{margin:0 0 18px; color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .card{
+      background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px;
+      transition:transform .15s, background .15s, border-color .15s;
+    }
+    .card:hover{transform:translateY(-2px); background:#151F33; border-color:#2A3954}
+    .card h3{margin:0 0 6px; font-family:"Space Grotesk", Inter; font-size:20px}
+    .card p{margin:0; color:var(--muted)}
+
+    /* Process */
+    .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .step{background:var(--surface); border:1px dashed var(--border); border-radius:var(--radius); padding:18px}
+    .step strong{display:block; font-family:"Space Grotesk", Inter; margin-bottom:6px}
+
+    /* CTA strip */
+    .strip{
+      margin-top:32px; border:1px solid var(--border); border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,178,36,.08), rgba(18,26,42,.2));
+      padding:18px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    }
+
+    /* Testimonials */
+    .quotes{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    blockquote{margin:0; padding:18px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius)}
+    blockquote p{margin:0 0 8px}
+    blockquote footer{font-weight:600; color:var(--muted)}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border); padding:28px 0; margin-top:20px; color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:1024px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid,.steps,.quotes{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .grid,.steps,.quotes{grid-template-columns:1fr}
+      .logo-box{min-width:130px; height:auto}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#" aria-label="[Your Plumber Name]">
+          <!-- Replace with your image logo if you like -->
+          <div class="logo-box">LOGO <span style="opacity:.7; margin-left:8px">placeholder</span></div>
+        </a>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" href="https://wa.me/447508402131?text=Hi%20I%27m%20interested%20in%20a%20plumbing%20quote" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-primary" href="query.html">Get a quote</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Gas Safe • Insured • Local</div>
+        <h1 class="h1">Fast, reliable plumbing for homes and businesses.</h1>
+        <p class="lead">Boilers, leaks, bathrooms, radiators, cylinders, blockages, and emergency call-outs—done safely and neatly.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap">
+          <a class="btn btn-primary" href="query.html">Request a free quote</a>
+          <a class="btn" href="#services">View services</a>
+        </div>
+        <div class="badges" aria-label="Credibility badges">
+          <span class="badge">Same-day call-outs</span>
+          <span class="badge">Transparent pricing</span>
+          <span class="badge">Bradford & West Yorkshire</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <strong style="font-family:'Space Grotesk',Inter; font-size:20px">Why customers choose us</strong>
+        <ul style="margin:10px 0 0 18px">
+          <li>On time, tidy, and respectful in your property</li>
+          <li>Clear quotes, no hidden extras</li>
+          <li>All work guaranteed</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-h">Plumbing services</h2>
+      <p class="section-p">From fixes to full installs—professional, compliant, and built to last.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Boiler & Heating</h3>
+          <p>Servicing, repairs, installs, and smart thermostat setup.</p>
+        </div>
+        <div class="card">
+          <h3>Leaks & Blockages</h3>
+          <p>Rapid detection and repairs to get you back to normal.</p>
+        </div>
+        <div class="card">
+          <h3>Bathrooms & Kitchens</h3>
+          <p>Installations, upgrades, taps, showers, sinks, and appliances.</p>
+        </div>
+        <div class="card">
+          <h3>Radiators & Cylinders</h3>
+          <p>New installs, balancing, power-flush, hot water cylinders.</p>
+        </div>
+        <div class="card">
+          <h3>Emergency Call-outs</h3>
+          <p>Priority response across Bradford and nearby areas.</p>
+        </div>
+        <div class="card">
+          <h3>Landlord Safety</h3>
+          <p>Certificates, inspections, and scheduled maintenance.</p>
+        </div>
+      </div>
+
+      <div class="strip">
+        <div><strong style="font-family:'Space Grotesk',Inter">Need help today?</strong><br>We offer same-day appointments where possible.</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" href="https://wa.me/447508402131?text=Emergency%20plumber%20help%20please" target="_blank" rel="noopener">WhatsApp now</a>
+          <a class="btn btn-primary" href="query.html">Get a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section>
+    <div class="container">
+      <h2 class="section-h">How it works</h2>
+      <div class="steps">
+        <div class="step"><strong>1) Tell us the issue</strong>Send a quick message or use the quote form.</div>
+        <div class="step"><strong>2) Get a clear quote</strong>Fair pricing with a simple breakdown.</div>
+        <div class="step"><strong>3) We get it done</strong>Certified work, tidy finish, guaranteed.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section aria-labelledby="reviews-title">
+    <div class="container">
+      <h2 id="reviews-title" class="section-h">What customers say</h2>
+      <div class="quotes">
+        <blockquote>
+          <p>“Fixed our leak within hours and left everything spotless. Highly recommend.”</p>
+          <footer>— Aisha R., BD3</footer>
+        </blockquote>
+        <blockquote>
+          <p>“Clear quote, no surprises. Boiler service was quick and professional.”</p>
+          <footer>— David H., BD8</footer>
+        </blockquote>
+        <blockquote>
+          <p>“Great communication and tidy install of new radiators.”</p>
+          <footer>— Priya S., BD10</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <span>© <span id="y"></span> [Your Plumber Name]</span>
+      <span>Bradford, UK • Fully insured</span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
